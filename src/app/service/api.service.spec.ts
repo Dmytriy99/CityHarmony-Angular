@@ -6,11 +6,20 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
+import { Post } from '../interface';
 
 describe('ApiService', () => {
   let service: ApiService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
+  const postsMock: Post[] = [
+    {
+      id: 123,
+      user_id: 123,
+      title: 'test title',
+      body: 'test body',
+    },
+  ];
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, HttpClientTestingModule],
