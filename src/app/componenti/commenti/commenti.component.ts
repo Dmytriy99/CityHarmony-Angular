@@ -22,7 +22,7 @@ export class CommentiComponent implements OnInit {
         this.noComment = 'Non sono ancora presenti commenti';
       } else {
         this.comment = data;
-        // console.log(this.comment);
+        console.log(this.comment);
       }
     });
   }
@@ -30,7 +30,7 @@ export class CommentiComponent implements OnInit {
     const body = form.value.body;
     const email = this.user.email;
     const name = this.user.name;
-
+    console.log(email);
     console.log(this.postId);
     this.apiservice
       .postComment(

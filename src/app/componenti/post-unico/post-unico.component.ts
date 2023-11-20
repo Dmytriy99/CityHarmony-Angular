@@ -22,6 +22,7 @@ export class PostUnicoComponent implements OnInit {
     if (this.post) {
       this.title = this.post.title;
       this.body = this.post.body;
+      this.iDpost = this.post.id;
       //console.log(this.useriD);
       // this.iDpost = +this.route.snapshot.paramMap.get('id')!;
       // this.post = this.apiService.getPost(this.iDpost).subscribe((data: any) => {
