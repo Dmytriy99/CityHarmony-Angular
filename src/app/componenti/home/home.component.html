@@ -6,21 +6,26 @@
         role="listitem"
         routerLink="homeUser"
         [routerLinkActive]="'active'"
-        ><h2>{{ name }}</h2></mat-list-item
+      >
+        <mat-icon> home </mat-icon></mat-list-item
       >
       <mat-list-item
         class="prova"
         role="listitem"
         routerLink="posts"
         [routerLinkActive]="'active'"
-        ><p class="menu">Post</p></mat-list-item
+        ><mat-icon
+          ><span class="material-symbols-outlined"> post_add </span></mat-icon
+        ></mat-list-item
       >
       <mat-list-item
         class="prova"
         role="listitem"
         routerLink="users"
         [routerLinkActive]="'active'"
-        ><p class="menu">Users</p></mat-list-item
+        ><mat-icon
+          ><span class="material-symbols-outlined"> group </span></mat-icon
+        ></mat-list-item
       >
     </mat-list>
   </mat-drawer>
