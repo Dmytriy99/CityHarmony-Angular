@@ -1,0 +1,60 @@
+<form class="search" #loginform="ngForm" (ngSubmit)="onSearch(loginform)">
+  <mat-form-field class="searchBar">
+    <input matInput type="text" name="title" ngModel />
+  </mat-form-field>
+  <button mat-fab extended color="primary" type="submit">Search</button>
+  <button class="back" mat-fab extended color="primary" (click)="back()">
+    Go Back
+  </button>
+</form>
+
+<div class="addUser">
+  <button
+    mat-fab
+    extended
+    color="primary"
+    class="btnUser"
+    (click)="openDialog()"
+  >
+    AGGIUNGI UTENTE
+  </button>
+</div>
+<div class="card" *ngFor="let user of users">
+  <mat-card class="container"
+    ><mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened
+        ><img
+          class="photo"
+          [src]="user.gender === 'male' ? photoMan2 : photoGirl2"
+      /></mat-drawer>
+      <mat-drawer-content
+        ><mat-card-header class="card">
+          <mat-card-title
+            >{{ user.name }}
+            <div
+              class="cerchio"
+              [ngStyle]="{
+                background: user.status === 'active' ? 'green' : 'red'
+              }"
+            ></div>
+          </mat-card-title>
+          <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-fab extended color="primary" routerLink="{{ user.id }}">
+            Visualizza Profilo
+          </button>
+        </mat-card-actions>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-card>
+</div>
+<mat-paginator
+  [length]="lenghtPost"
+  [pageIndex]="pageIndex"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="selectPage($event)"
+  aria-label="Select page"
+>
+</mat-paginator>

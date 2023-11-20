@@ -1,0 +1,40 @@
+<div *ngIf="users">
+  <mat-card class="container"
+    ><mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened
+        ><img
+          class="photo"
+          [src]="users.gender === 'male' ? photoMan2 : photoGirl2"
+      /></mat-drawer>
+      <mat-drawer-content
+        ><mat-card-header class="card">
+          <mat-card-title
+            >{{ users.name }}
+            <div
+              class="cerchio"
+              [ngStyle]="{
+                background: users.status === 'active' ? 'green' : 'red'
+              }"
+            ></div>
+          </mat-card-title>
+          <mat-card-subtitle>{{ users.email }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-card>
+  <div class="delete">
+    <h2>DELETE USER</h2>
+    <button
+      class="deleteBtn"
+      mat-mini-fab
+      color="warn"
+      aria-label="Example icon button with a menu icon"
+      (click)="deleteUser()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="post" *ngFor="let posts of post">
+    <app-post-unico [post]="posts"></app-post-unico>
+  </div>
+</div>

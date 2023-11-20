@@ -1,0 +1,34 @@
+<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput type="text" name="name" ngModel />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select name="gender" ngModel="data.select">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input
+      matInput
+      placeholder="pat@example.com"
+      type="email"
+      name="email"
+      ngModel
+    />
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Primary</button>
+</form>
+<mat-card>
+  <mat-card-content
+    >Il codice utente per poter accedere successivamente è
+    <h2>{{ idUser }}</h2></mat-card-content
+  >
+</mat-card>
+<button mat-raised-button color="primary" type="submit" routerLink="login">
+  Primary
+</button>
+<router-outlet></router-outlet>

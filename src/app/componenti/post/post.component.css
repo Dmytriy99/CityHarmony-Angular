@@ -1,0 +1,55 @@
+button {
+  background-color: lightcoral;
+}
+
+.add {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  /* background-color: rgb(125, 112, 238); */
+  background-color: rgb(163, 122, 151);
+  width: 50%;
+  margin: 0 auto;
+}
+div {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.addPost {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 70%;
+}
+
+h1 {
+  padding-top: 10px;
+  font-weight: 500;
+}
+
+.openPost {
+  background-color: rgb(239, 235, 243);
+}
+
+.title {
+  width: 70%;
+}
+
+.searchBar {
+  width: 30%;
+}
+.search {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.back {
+  margin-left: 10px;
+}
+
+button {
+  height: 32px;
+}

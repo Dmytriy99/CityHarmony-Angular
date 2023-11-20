@@ -1,0 +1,41 @@
+.example-container {
+  height: 100%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-drawer {
+  width: 200px;
+  text-align: center;
+  height: 100%;
+  /* background-color: rgb(125, 112, 238); */
+  background-color: rgb(228, 201, 220);
+}
+h2 {
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+.menu {
+  margin-top: 15px;
+  font-weight: 500;
+  align-items: center;
+}
+
+.list {
+  margin-top: 7.5px;
+}
+
+.active {
+  /* background-color: lightgray; */
+  background-color: rgb(163, 122, 151);
+}
+
+mat-toolbar {
+  /* background-color: rgb(125, 112, 238); */
+  background-color: rgb(228, 201, 220);
+}
+mat-drawer .prova {
+  margin-top: auto;
+}

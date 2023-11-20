@@ -1,0 +1,48 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <mat-list class="list" role="list">
+      <mat-list-item
+        class="user"
+        role="listitem"
+        routerLink="homeUser"
+        [routerLinkActive]="'active'"
+        ><h2>{{ name }}</h2></mat-list-item
+      >
+      <mat-list-item
+        class="prova"
+        role="listitem"
+        routerLink="posts"
+        [routerLinkActive]="'active'"
+        ><p class="menu">Post</p></mat-list-item
+      >
+      <mat-list-item
+        class="prova"
+        role="listitem"
+        routerLink="users"
+        [routerLinkActive]="'active'"
+        ><p class="menu">Users</p></mat-list-item
+      >
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content
+    ><mat-toolbar>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon> emoji_transportation </mat-icon>
+      </button>
+      <span>CityHarmony</span>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

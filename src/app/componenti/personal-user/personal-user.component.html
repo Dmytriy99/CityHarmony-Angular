@@ -1,0 +1,28 @@
+<div *ngIf="user">
+  <mat-card class="container"
+    ><mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened
+        ><img
+          class="photo"
+          [src]="user.gender === 'male' ? photoMan2 : photoGirl2"
+      /></mat-drawer>
+      <mat-drawer-content
+        ><mat-card-header class="card">
+          <mat-card-title
+            >{{ user.name }}
+            <div
+              class="cerchio"
+              [ngStyle]="{
+                background: user.status === 'active' ? 'green' : 'red'
+              }"
+            ></div>
+          </mat-card-title>
+          <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-card>
+  <div class="post" *ngFor="let posts of post">
+    <app-post-unico [post]="posts"></app-post-unico>
+  </div>
+</div>
