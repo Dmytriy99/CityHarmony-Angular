@@ -6,25 +6,16 @@
 }
 
 mat-drawer {
-  width: 5%;
+  width: 6%;
   text-align: center;
   height: 100%;
   /* background-color: rgb(125, 112, 238); */
   background-color: rgb(228, 201, 220);
 }
-h2 {
-  margin-top: 15px;
-  font-size: 22px;
-}
-
-.menu {
-  margin-top: 15px;
-  font-weight: 500;
-  align-items: center;
-}
 
 .list {
   margin-top: 7.5px;
+  width: 100%;
 }
 
 .active {
@@ -38,4 +29,10 @@ mat-toolbar {
 }
 mat-drawer .prova {
   margin-top: auto;
+}
+
+@media only screen and (max-width: 850px) {
+  mat-drawer {
+    width: 15%;
+  }
 }

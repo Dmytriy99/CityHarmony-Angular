@@ -1,8 +1,27 @@
-<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+<!-- <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
   <mat-form-field>
     <mat-label>Nome</mat-label>
     <input matInput type="text" name="id" ngModel />
   </mat-form-field>
   <button mat-raised-button color="primary" type="submit">Primary</button>
   <h2>{{ error }}</h2>
-</form>
+</form> -->
+
+<mat-card>
+  <mat-card-content>
+    <h2>Login</h2>
+    <h3>Immetti le tue credenziali per poter accedere!!</h3>
+    <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+      <mat-form-field>
+        <mat-label>IdUser</mat-label>
+        <input matInput type="text" name="id" ngModel />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Token</mat-label>
+        <input matInput type="password" name="token" ngModel />
+      </mat-form-field>
+      <button mat-fab extended color="primary" type="submit">Primary</button>
+      <h2>{{ error }}</h2>
+    </form></mat-card-content
+  >
+</mat-card>

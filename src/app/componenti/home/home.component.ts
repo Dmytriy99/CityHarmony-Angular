@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
   idUser: number = +localStorage.getItem('id')!;
   name: string | undefined;
 
-  constructor(private apiservice: ApiService) {}
+  constructor(private apiservice: ApiService, private route: Router) {}
   ngOnInit(): void {
     console.log('ciao');
     this.apiservice.getUser2(this.idUser).subscribe((data) => {
@@ -19,5 +20,9 @@ export class HomeComponent implements OnInit {
         this.name = data.name;
       });
     });
+  }
+  logOut() {
+    localStorage.removeItem('isLog');
+    this.route.navigate(['register']);
   }
 }

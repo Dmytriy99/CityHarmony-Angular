@@ -1,4 +1,4 @@
-<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+<!-- <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
   <mat-form-field>
     <mat-label>Nome</mat-label>
     <input matInput type="text" name="name" ngModel />
@@ -21,14 +21,64 @@
     />
   </mat-form-field>
   <button mat-raised-button color="primary" type="submit">Primary</button>
-</form>
+</form> -->
+
+<mat-card>
+  <mat-card-content
+    ><h2>Benvenuto su CityHarmony</h2>
+    <p>Registrati per poter accedere al sito</p>
+    <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" name="name" ngModel />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select name="gender" ngModel="data.select">
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          type="email"
+          name="email"
+          ngModel
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Token</mat-label>
+        <input matInput type="password" name="token" ngModel />
+      </mat-form-field>
+      <p>
+        Se non possiedi il token ottienilo al seguente "<a
+          href="https://gorest.co.in/my-account/access-tokens"
+          >LINK</a
+        >"
+      </p>
+      <button mat-fab extended color="primary" type="submit">Register</button>
+    </form></mat-card-content
+  >
+</mat-card>
+
 <mat-card>
   <mat-card-content
     >Il codice utente per poter accedere successivamente è
-    <h2>{{ idUser }}</h2></mat-card-content
-  >
+    <h2 class="idUser">{{ idUser }}</h2>
+    <h3>
+      <mat-icon>priority_high</mat-icon>Ricordati il codice per poter accedere
+      nuovamente attraverso il Login
+    </h3>
+    <h3>
+      Se ti sei appena registrato o hai già ottentuto le credenziali clicca qui
+    </h3>
+    <button mat-fab extended color="primary" type="submit" routerLink="login">
+      Login
+    </button>
+  </mat-card-content>
 </mat-card>
-<button mat-raised-button color="primary" type="submit" routerLink="login">
-  Primary
-</button>
+
 <router-outlet></router-outlet>

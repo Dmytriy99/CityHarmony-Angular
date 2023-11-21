@@ -1,5 +1,6 @@
 button {
   background-color: lightcoral;
+  height: 32px;
 }
 
 .add {
@@ -48,8 +49,4 @@ h1 {
 
 .back {
   margin-left: 10px;
-}
-
-button {
-  height: 32px;
 }

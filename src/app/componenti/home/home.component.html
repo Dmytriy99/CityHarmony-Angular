@@ -31,20 +31,12 @@
   </mat-drawer>
   <mat-drawer-content
     ><mat-toolbar>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
+      <button mat-icon-button routerLink="posts">
         <mat-icon> emoji_transportation </mat-icon>
       </button>
       <span>CityHarmony</span>
       <span class="example-spacer"></span>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with share icon"
-      >
+      <button mat-icon-button type="button" (click)="logOut()">
         <mat-icon>logout</mat-icon>
       </button>
     </mat-toolbar>

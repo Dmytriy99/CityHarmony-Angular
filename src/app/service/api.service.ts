@@ -7,8 +7,9 @@ import { User } from '../modelli/user.model';
   providedIn: 'root',
 })
 export class ApiService {
-  token: string =
+  provatoken: string =
     '78d9b874c8945f8b890ec61e0e4d0c5f0a64001f932e5f5c899c61b77f8aac74';
+  token: string = localStorage.getItem('token')!;
   urlPost: any = 'https://gorest.co.in/public/v2/posts';
   urlUser: any = 'https://gorest.co.in/public/v2/users';
   user!: User;

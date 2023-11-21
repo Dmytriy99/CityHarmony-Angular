@@ -11,18 +11,18 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class LoginComponent {
   error!: string;
-  idLocal = localStorage.getItem('id');
+  idLocal: number = +localStorage.getItem('id')!;
+  localToken: string = localStorage.getItem('token')!;
   constructor(private apiService: ApiService, private route: Router) {}
-  ngOnInit(): void {
-    console.log(this.idLocal);
-  }
+  ngOnInit(): void {}
   onSubmit(form: NgForm) {
     const idUser = form.value.id;
+    const token = form.value.token;
     this.apiService
       .getUser2(idUser)
       .pipe(catchError(() => of(this.error)))
       .subscribe((data: any) => {
-        if (data.id == this.idLocal) {
+        if (data.id == this.idLocal && token == this.localToken) {
           localStorage.setItem('isLog', 'true');
           this.route.navigate(['/posts']);
         } else {

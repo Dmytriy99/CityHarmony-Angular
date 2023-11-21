@@ -4,13 +4,41 @@ mat-form-field {
   flex-direction: column;
   display: flex;
   width: 200px;
+  margin: 0 auto;
 }
-form {
+/* form {
   display: flex;
   flex-direction: column;
-}
+  margin: 0 auto;
+  text-align: center;
+} */
 
 button {
+  display: flex;
   margin-left: 8px;
   width: 120px;
+  margin: 0 auto;
+  background-color: lightcoral;
+  height: 32px;
+}
+
+mat-card {
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  background-color: rgb(228, 201, 220);
+}
+
+mat-card-content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.idUser {
+  margin-top: 10px;
 }
