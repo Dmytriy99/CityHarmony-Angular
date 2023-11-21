@@ -18,16 +18,15 @@ export class LoginComponent {
   onSubmit(form: NgForm) {
     const idUser = form.value.id;
     const token = form.value.token;
-    this.apiService
-      .getUser2(idUser)
-      .pipe(catchError(() => of(this.error)))
-      .subscribe((data: any) => {
-        if (data.id == this.idLocal && token == this.localToken) {
-          localStorage.setItem('isLog', 'true');
-          this.route.navigate(['/posts']);
-        } else {
-          this.error = 'Utente non trovato';
-        }
-      });
+    this.control(idUser, token);
+  }
+
+  control(idUser: number, token: string) {
+    if (idUser == this.idLocal && token == this.localToken) {
+      localStorage.setItem('isLog', 'true');
+      this.route.navigate(['/posts']);
+    } else {
+      this.error = 'Utente non trovato';
+    }
   }
 }
