@@ -23,7 +23,7 @@
   <button mat-raised-button color="primary" type="submit">Primary</button>
 </form> -->
 
-<mat-card>
+<mat-card class="register">
   <mat-card-content
     ><h2>Benvenuto su CityHarmony</h2>
     <p>Registrati per poter accedere al sito</p>
@@ -51,7 +51,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Token</mat-label>
-        <input matInput type="password" name="token" ngModel />
+        <input matInput type="text" name="token" ngModel />
       </mat-form-field>
       <p>
         Se non possiedi il token ottienilo al seguente "<a
@@ -64,7 +64,7 @@
   >
 </mat-card>
 
-<mat-card>
+<mat-card class="login">
   <mat-card-content
     >Il codice utente per poter accedere successivamente è
     <h2 class="idUser">{{ idUser }}</h2>

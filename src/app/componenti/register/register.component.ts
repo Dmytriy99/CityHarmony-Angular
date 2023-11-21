@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     const email = form.value.email;
     const gender = form.value.gender;
     const token: string = form.value.token;
-    console.log(form.value);
+    localStorage.setItem('token', token);
     this.apiService
       .addUser({
         name: name,
@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
           data.status
         );
         localStorage.setItem('user', JSON.stringify(this.apiService.user));
-        localStorage.setItem('token', token);
         this.apiService.getUser().subscribe((data) => {
           this.persone = data;
           if (this.idUser == null) {
