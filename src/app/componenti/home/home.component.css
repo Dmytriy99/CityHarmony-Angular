@@ -33,6 +33,6 @@ mat-drawer .prova {
 
 @media only screen and (max-width: 850px) {
   mat-drawer {
-    width: 12%;
+    width: 16%;
   }
 }
