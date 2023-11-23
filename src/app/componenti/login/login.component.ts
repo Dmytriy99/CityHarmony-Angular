@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, of } from 'rxjs';
-import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +11,18 @@ export class LoginComponent {
   error!: string;
   idLocal: number = +localStorage.getItem('id')!;
   localToken: string = localStorage.getItem('token')!;
-  constructor(private apiService: ApiService, private route: Router) {}
+  storage = JSON.parse(localStorage.getItem('user')!);
+  email = this.storage.email;
+  constructor(private route: Router) {}
   ngOnInit(): void {}
   onSubmit(form: NgForm) {
-    const idUser = form.value.id;
+    const idUser = form.value.email;
     const token = form.value.token;
     this.control(idUser, token);
   }
 
-  control(idUser: number, token: string) {
-    if (idUser == this.idLocal && token == this.localToken) {
+  control(emailUser: number, token: string) {
+    if (emailUser == this.email && token == this.localToken) {
       localStorage.setItem('isLog', 'true');
       this.route.navigate(['/posts']);
     } else {

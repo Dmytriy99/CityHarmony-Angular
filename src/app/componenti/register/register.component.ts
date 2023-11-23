@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class RegisterComponent implements OnInit {
   urlUser: any = 'https://gorest.co.in/public/v2/users';
-  idUser: any;
+  idUser!: string;
   persone: any;
   constructor(private apiService: ApiService, private htp: HttpClient) {}
   ngOnInit(): void {
@@ -42,13 +42,7 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('token', token);
         this.htp.get(this.urlUser, httpOption).subscribe((data) => {
           this.persone = data;
-          if (this.idUser == null) {
-            this.idUser = 'Registrati per scoprirlo';
-          } else {
-            this.idUser = this.persone[0].id;
-          }
-          // console.log(this.idUser);
-          // console.log(this.persone[0].id);
+          this.idUser = this.persone[0].id;
           localStorage.setItem('id', this.persone[0].id);
         });
       });

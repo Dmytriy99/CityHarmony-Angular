@@ -13,8 +13,8 @@
     <h3>Immetti le tue credenziali per poter accedere!!</h3>
     <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
       <mat-form-field>
-        <mat-label>IdUser</mat-label>
-        <input matInput type="text" name="id" ngModel />
+        <mat-label> Email</mat-label>
+        <input matInput type="email" name="email" ngModel />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Token</mat-label>

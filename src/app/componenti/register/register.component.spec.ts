@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -29,6 +30,8 @@ describe('RegisterComponent', () => {
         RouterTestingModule,
         MatInputModule,
         MatSelectModule,
+        MatCardModule,
+        MatIconModule,
       ],
       declarations: [RegisterComponent],
     }).compileComponents();
