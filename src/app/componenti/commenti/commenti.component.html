@@ -1,5 +1,5 @@
 <form #Commentform="ngForm" (ngSubmit)="onSubmit(Commentform)">
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Leave a comment</mat-label>
     <input
       type="text"
@@ -13,7 +13,7 @@
     <!-- <button mat-raised-button color="primary" type="submit">Comment</button> -->
     <button
       mat-icon-button
-      class="example-icon favorite-icon"
+      class="send"
       aria-label="Example icon-button with heart icon"
       type="submit"
     >
@@ -36,6 +36,7 @@
   <mat-card class="example-card">
     <mat-card-title>{{ comments.name }}</mat-card-title>
     <mat-card-subtitle>{{ comments.email }}</mat-card-subtitle>
+
     <p>{{ comments.body }}</p>
   </mat-card>
 </div>

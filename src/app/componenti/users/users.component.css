@@ -47,3 +47,26 @@ button {
   background-color: lightcoral;
   height: 32px;
 }
+
+@media only screen and (max-width: 850px) {
+  mat-card {
+    width: 95%;
+  }
+
+  mat-card-title {
+    font-size: 17px;
+  }
+  mat-card-subtitle {
+    font-size: 11px;
+  }
+  .photo {
+    width: 75px;
+    height: 95px;
+  }
+  .searchBar {
+    width: 90%;
+  }
+  .back {
+    margin-bottom: 25px;
+  }
+}
