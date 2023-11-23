@@ -58,9 +58,12 @@ h1 {
     height: 30px;
   }
   .searchBar {
-    width: 32%;
+    width: 85%;
   }
   .add {
     width: 95%;
+  }
+  .back {
+    margin-bottom: 15px;
   }
 }
