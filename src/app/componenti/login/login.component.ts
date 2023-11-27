@@ -12,7 +12,7 @@ export class LoginComponent {
   idLocal: number = +localStorage.getItem('id')!;
   localToken: string = localStorage.getItem('token')!;
   storage = JSON.parse(localStorage.getItem('user')!);
-  email = this.storage.email;
+
   constructor(private route: Router) {}
   ngOnInit(): void {}
   onSubmit(form: NgForm) {
@@ -22,7 +22,8 @@ export class LoginComponent {
   }
 
   control(emailUser: number, token: string) {
-    if (emailUser == this.email && token == this.localToken) {
+    const email = this.storage.email;
+    if (emailUser == email && token == this.localToken) {
       localStorage.setItem('isLog', 'true');
       this.route.navigate(['/posts']);
     } else {

@@ -6,14 +6,19 @@ mat-form-field {
   width: 90%;
 }
 form {
-  width: 600px;
+  width: 550px;
   display: flex;
   flex-direction: column;
 }
 
-button {
+.adduser {
   margin: 0 auto;
   width: 50%;
+  background-color: lightcoral;
+  height: 32px;
+}
+button {
+  margin: 0 auto;
 }
 
 h2 {
@@ -21,4 +26,10 @@ h2 {
   margin: 0 auto;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 850px) {
+  form {
+    width: 250px;
+  }
 }

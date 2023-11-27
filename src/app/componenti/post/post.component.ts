@@ -10,6 +10,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class PostComponent implements OnInit {
   constructor(private apiservice: ApiService) {}
+  title!: string;
+  body!: string;
   userID: any;
   Allpost!: Post[];
   id_post: any;
@@ -42,10 +44,9 @@ export class PostComponent implements OnInit {
         console.log(data);
         this.getAllPost(this.pageIndex, this.pageSize);
       });
-
     // setTimeout(function () {
     //   location.reload();
-    // }, 1500);
+    // }, 1500);timeout
   }
 
   onSearch(form: NgForm) {
@@ -64,5 +65,12 @@ export class PostComponent implements OnInit {
     this.pageIndex = e.pageIndex;
     this.pageSize = e.pageSize;
     this.getAllPost(this.pageIndex, this.pageSize);
+  }
+
+  clear() {
+    setTimeout(() => {
+      this.title = '';
+      this.body = '';
+    }, 1500);
   }
 }
