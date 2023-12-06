@@ -8,6 +8,7 @@ mat-drawer-container {
   display: flex;
   margin: 0 auto;
   width: 60%;
+  margin-top: 10px;
 }
 
 mat-drawer {

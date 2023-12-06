@@ -8,10 +8,7 @@ import { HomeComponent } from './componenti/home/home.component';
 
 import { FormsModule } from '@angular/forms';
 
-import {
-  MatFormFieldControl,
-  MatFormFieldModule,
-} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';

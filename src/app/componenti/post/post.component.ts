@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
-import { Post } from 'src/app/interface';
+// import { Post } from 'src/app/interface';
+import { Post } from 'src/app/modelli/example.model';
 import { NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
+import { postService } from 'src/app/service/postService/post.service';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
-  constructor(private apiservice: ApiService) {}
+  constructor(private postService: postService) {}
   title!: string;
   body!: string;
-  userID: any;
   Allpost!: Post[];
-  id_post: any;
   lenghtPost: number = 75;
   pageSize: number = 10;
   pageIndex: number = 1;
@@ -25,8 +24,8 @@ export class PostComponent implements OnInit {
   }
 
   getAllPost(pageIndex: number, pageSize: number) {
-    this.apiservice
-      .getPost3(this.pageIndex, this.pageSize)
+    this.postService
+      .getAllPostByIndex(this.pageIndex, this.pageSize)
       .subscribe((data: any) => {
         this.Allpost = data;
         this.lenghtPost = pageSize;
@@ -38,21 +37,18 @@ export class PostComponent implements OnInit {
     const body: string = form.value.body;
     console.log(title, body);
     console.log(user_id);
-    this.apiservice
+    this.postService
       .postPost({ title: title, body: body, user: user_id }, user_id)
       .subscribe((data) => {
         console.log(data);
         this.getAllPost(this.pageIndex, this.pageSize);
       });
-    // setTimeout(function () {
-    //   location.reload();
-    // }, 1500);timeout
   }
 
   onSearch(form: NgForm) {
     const title = form.value.title;
     console.log(title);
-    this.apiservice.getPost4(title).subscribe((data: any) => {
+    this.postService.getBySearch(title).subscribe((data: any) => {
       this.Allpost = data;
     });
   }

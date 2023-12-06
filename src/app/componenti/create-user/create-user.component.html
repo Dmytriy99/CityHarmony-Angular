@@ -1,7 +1,7 @@
 <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
   <h2>AGGIUNGI UTENTE</h2>
   <mat-form-field>
-    <mat-label>Nome</mat-label>
+    <mat-label>Name</mat-label>
     <input matInput type="text" name="name" ngModel />
   </mat-form-field>
   <mat-form-field>
@@ -16,7 +16,7 @@
     <input matInput type="email" name="email" ngModel />
   </mat-form-field>
   <button class="adduser" mat-fab extended color="primary" type="submit">
-    Primary
+    Crea Utente
   </button>
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>

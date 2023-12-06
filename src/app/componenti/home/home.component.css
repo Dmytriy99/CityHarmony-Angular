@@ -26,13 +26,28 @@ mat-drawer {
 mat-toolbar {
   /* background-color: rgb(125, 112, 238); */
   background-color: rgb(228, 201, 220);
+  position: fixed;
+  z-index: 1000;
+  width: 94.5%;
+  top: 0;
 }
+
 mat-drawer .prova {
   margin-top: auto;
+}
+
+mat-drawer-content {
+  margin-top: 65px;
 }
 
 @media only screen and (max-width: 850px) {
   mat-drawer {
     width: 16%;
+  }
+  mat-toolbar {
+    width: 86%;
+  }
+  mat-drawer-content {
+    margin-top: 57px;
   }
 }

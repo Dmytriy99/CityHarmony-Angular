@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ApiService } from 'src/app/service/api.service';
+import { User } from 'src/app/modelli/example.model';
+import { userService } from 'src/app/service/userService/user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +10,10 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  urlUser: any = 'https://gorest.co.in/public/v2/users';
-  idUser!: string;
-  persone: any;
-  constructor(private apiService: ApiService, private htp: HttpClient) {}
-  ngOnInit(): void {
-    if (this.idUser == null) {
-      this.idUser = 'Registrati per scoprirlo';
-    }
-  }
+  urlUser: string = 'https://gorest.co.in/public/v2/users';
+  persone!: User[];
+  constructor(private http: HttpClient, private userService: userService) {}
+  ngOnInit(): void {}
   onSubmit(form: NgForm) {
     const name = form.value.name;
     const email = form.value.email;
@@ -28,22 +24,21 @@ export class RegisterComponent implements OnInit {
     });
     const httpOption = { headers: headers };
     console.log(form.value);
-    this.htp
+    this.http
       .post(this.urlUser, { name, email, gender, status: 'active' }, httpOption)
       .subscribe((data: any) => {
         console.log(data);
-        this.apiService.createUser(
-          data.email,
+        this.userService.createUser(
           data.name,
+          data.email,
           data.gender,
           data.status
         );
-        localStorage.setItem('user', JSON.stringify(this.apiService.user));
+        localStorage.setItem('user', JSON.stringify(this.userService.user));
         localStorage.setItem('token', token);
-        this.htp.get(this.urlUser, httpOption).subscribe((data) => {
+        this.http.get(this.urlUser, httpOption).subscribe((data: any) => {
           this.persone = data;
-          this.idUser = this.persone[0].id;
-          localStorage.setItem('id', this.persone[0].id);
+          localStorage.setItem('id', JSON.stringify(this.persone[0].id));
         });
       });
   }

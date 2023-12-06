@@ -47,6 +47,9 @@ button {
   background-color: lightcoral;
   height: 32px;
 }
+mat-paginator {
+  margin-bottom: 62px;
+}
 
 @media only screen and (max-width: 850px) {
   mat-card {

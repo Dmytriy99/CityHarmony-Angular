@@ -12,12 +12,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ApiService } from 'src/app/service/api.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let service: ApiService;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -36,7 +35,7 @@ describe('HomeComponent', () => {
       declarations: [HomeComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(HomeComponent);
-    service = TestBed.inject(ApiService);
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

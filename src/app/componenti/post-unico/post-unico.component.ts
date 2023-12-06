@@ -1,14 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
+
 import { catchError, of } from 'rxjs';
-import { Post } from 'src/app/interface';
+import { Post } from 'src/app/modelli/example.model';
+import { CommentiComponent } from '../commenti/commenti.component';
+import { userService } from 'src/app/service/userService/user.service';
 @Component({
   selector: 'app-post-unico',
   templateUrl: './post-unico.component.html',
   styleUrls: ['./post-unico.component.css'],
 })
 export class PostUnicoComponent implements OnInit {
-  error: any = 'Utente non Trovato';
+  error: string = 'Utente non Trovato';
   userName!: string;
   userEmail!: string;
   useriD!: number;
@@ -17,28 +19,16 @@ export class PostUnicoComponent implements OnInit {
   user!: number;
   title!: string;
   body!: string;
-  constructor(private apiService: ApiService) {}
+  constructor(private userService: userService) {}
   ngOnInit(): void {
     if (this.post) {
       this.title = this.post.title;
       this.body = this.post.body;
       this.iDpost = this.post.id;
-      //console.log(this.useriD);
-      // this.iDpost = +this.route.snapshot.paramMap.get('id')!;
-      // this.post = this.apiService.getPost(this.iDpost).subscribe((data: any) => {
-      //   this.useriD = data.user_id;
-      //   this.post = data;
-      //   console.log(this.post);
-      //   console.log(this.useriD);
-      //   // this.apiService.getUser2(this.useriD).subscribe((data: any) => {
-      //   //   this.userName = data.name;
-      //   //   this.userEmail = data.email;
-      //   //   catchError((error) => of(error));
-      //   // });
-      this.apiService
-        .getUser2(this.post.user_id)
+      this.userService
+        .getUserByID(this.post.user_id)
         .pipe(catchError(() => of(this.error)))
-        .subscribe((data) => {
+        .subscribe((data: any) => {
           if (data !== this.error) {
             this.userName = data.name;
             this.userEmail = data.email;
