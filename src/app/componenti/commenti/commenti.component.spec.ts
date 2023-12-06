@@ -22,7 +22,6 @@ import { CommentService } from 'src/app/service/commentService/comment.service';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { User, Comment } from 'src/app/modelli/example.model';
 import { async, of } from 'rxjs';
-import { PostUnicoComponent } from '../post-unico/post-unico.component';
 
 // describe('CommentiComponent', () => {
 //   let component: CommentiComponent;
@@ -72,7 +71,7 @@ describe('CommentiComponent', () => {
     ]);
 
     TestBed.configureTestingModule({
-      declarations: [CommentiComponent, PostUnicoComponent],
+      declarations: [CommentiComponent],
       imports: [
         RouterTestingModule,
         HttpClientModule,
@@ -153,6 +152,6 @@ describe('CommentiComponent', () => {
     expect(component.user).toEqual(mockUser);
     expect(commentServiceSpy.getComment).toHaveBeenCalledWith(1);
     expect(component.comment).toEqual([]);
-    expect(component.noComment).toEqual('Non sono ancora presenti commenti');
+    expect(component.noComment).toEqual('There are no comments yet');
   });
 });

@@ -1,35 +1,10 @@
-<!-- <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
-  <mat-form-field>
-    <mat-label>Nome</mat-label>
-    <input matInput type="text" name="name" ngModel />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Gender</mat-label>
-    <mat-select name="gender" ngModel="data.select">
-      <mat-option value="male">Male</mat-option>
-      <mat-option value="female">Female</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Enter your email</mat-label>
-    <input
-      matInput
-      placeholder="pat@example.com"
-      type="email"
-      name="email"
-      ngModel
-    />
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit">Primary</button>
-</form> -->
-
 <mat-card class="register">
   <mat-card-content
-    ><h2>Benvenuto su CityHarmony</h2>
-    <p>Registrati per poter accedere al sito</p>
+    ><h2>Welcome to CityHarmony</h2>
+    <p>Register to access the site</p>
     <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
       <mat-form-field>
-        <mat-label>Nome</mat-label>
+        <mat-label>Name</mat-label>
         <input matInput type="text" name="name" ngModel />
       </mat-form-field>
       <mat-form-field>
@@ -54,11 +29,12 @@
         <input matInput type="password" name="token" ngModel />
       </mat-form-field>
       <p>
-        Se non possiedi il token ottienilo al seguente "<a
+        If you don't have the token, get it at the following "<a
           href="https://gorest.co.in/my-account/access-tokens"
           >LINK</a
         >"
       </p>
+      <h2>{{ error }}</h2>
       <button mat-fab extended color="primary" type="submit">Register</button>
     </form></mat-card-content
   >
@@ -67,10 +43,10 @@
 <mat-card class="login">
   <mat-card-content>
     <h3>
-      Se ti sei appena registrato o hai già ottentuto le credenziali clicca qui
-      per effettuare il LogIn
+      If you have just registered or have already obtained your credentials,
+      click here to log in
     </h3>
-    <button mat-fab extended color="primary" type="submit" routerLink="login">
+    <button mat-fab extended color="primary" type="submit" routerLink="/login">
       Login
     </button>
   </mat-card-content>

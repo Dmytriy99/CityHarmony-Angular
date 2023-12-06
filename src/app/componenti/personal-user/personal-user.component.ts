@@ -26,17 +26,6 @@ export class PersonalUserComponent implements OnInit {
     private userService: userService
   ) {}
   ngOnInit(): void {
-    // if (this.idUser) {
-    //   this.userService.getUserByID(this.idUser).subscribe((data: any) => {
-    //     this.user = data;
-    //     console.log(this.user);
-    //   });
-
-    //   this.postService.getPostById(this.idUser).subscribe((data: any) => {
-    //     console.log(data);
-    //     this.post = data;
-    //   });
-    // }
     const storeId = localStorage.getItem('id');
     if (storeId) {
       this.idUser = +storeId;
@@ -47,7 +36,7 @@ export class PersonalUserComponent implements OnInit {
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
         if (data.length === 0) {
           //this.post = data;
-          this.nopost = 'non sono ancora presenti Post';
+          this.nopost = 'There are no Posts yet';
         } else {
           this.post = data;
         }

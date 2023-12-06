@@ -23,7 +23,7 @@ export class CommentiComponent implements OnInit {
       this.user = JSON.parse(this.dataLocal);
       this.commentService.getComment(this.postId).subscribe((data: any) => {
         if (data.length === 0) {
-          this.noComment = 'Non sono ancora presenti commenti';
+          this.noComment = 'There are no comments yet';
         } else {
           this.comment = data;
           console.log(this.comment);

@@ -33,7 +33,7 @@ const routes: Routes = [
     ],
   },
   { path: 'register', component: RegisterComponent },
-  { path: 'register/login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

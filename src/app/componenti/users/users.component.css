@@ -72,4 +72,7 @@ mat-paginator {
   .back {
     margin-bottom: 25px;
   }
+  mat-paginator {
+    margin-bottom: 2px;
+  }
 }

@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
         if (data.length === 0) {
           //this.post = data;
-          this.noPost = 'Non sono ancora presenti Post';
+          this.noPost = 'There are no Posts yet';
         } else {
           this.post = data;
         }
