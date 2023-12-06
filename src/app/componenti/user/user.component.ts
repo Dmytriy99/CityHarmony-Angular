@@ -10,6 +10,7 @@ import { userService } from 'src/app/service/userService/user.service';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
+  noPost: string = '';
   idUser: number = +this.route.snapshot.paramMap.get('id')!;
   users!: User;
   post!: Post[];
@@ -29,7 +30,12 @@ export class UserComponent implements OnInit {
         this.users = data;
       });
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
-        this.post = data;
+        if (data.length === 0) {
+          //this.post = data;
+          this.noPost = 'Non sono ancora presenti Post';
+        } else {
+          this.post = data;
+        }
       });
     }
   }

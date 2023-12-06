@@ -22,6 +22,7 @@
       </mat-drawer-content>
     </mat-drawer-container>
   </mat-card>
+  <h2>{{ nopost }}</h2>
   <div class="post" *ngFor="let posts of post">
     <app-post-unico [post]="posts"></app-post-unico>
   </div>

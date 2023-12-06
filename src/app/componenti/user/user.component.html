@@ -23,7 +23,7 @@
     </mat-drawer-container>
   </mat-card>
   <div class="delete">
-    <h2>DELETE USER</h2>
+    <h1>DELETE USER</h1>
     <button
       class="deleteBtn"
       mat-mini-fab
@@ -34,6 +34,7 @@
       <mat-icon>delete</mat-icon>
     </button>
   </div>
+  <h2>{{ noPost }}</h2>
   <div class="post" *ngFor="let posts of post">
     <app-post-unico [post]="posts"></app-post-unico>
   </div>

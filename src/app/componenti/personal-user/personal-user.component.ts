@@ -11,6 +11,7 @@ import { userService } from 'src/app/service/userService/user.service';
   styleUrls: ['./personal-user.component.css'],
 })
 export class PersonalUserComponent implements OnInit {
+  nopost: string = '';
   localData!: string;
   idpost!: number;
   idUser!: number;
@@ -44,8 +45,12 @@ export class PersonalUserComponent implements OnInit {
         console.log(this.user);
       });
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
-        console.log(data);
-        this.post = data;
+        if (data.length === 0) {
+          //this.post = data;
+          this.nopost = 'non sono ancora presenti Post';
+        } else {
+          this.post = data;
+        }
       });
     }
   }
