@@ -47,4 +47,11 @@ mat-drawer-content {
   mat-toolbar {
     width: 86%;
   }
+  mat-drawer-content {
+    margin-top: 0px;
+  }
+  mat-toolbar {
+    position: static;
+    width: auto;
+  }
 }

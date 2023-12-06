@@ -69,7 +69,6 @@ mat-paginator {
     margin-bottom: 15px;
   }
   mat-paginator {
-    height: 25%;
-    margin-bottom: 0px;
+    margin-bottom: 2px;
   }
 }
