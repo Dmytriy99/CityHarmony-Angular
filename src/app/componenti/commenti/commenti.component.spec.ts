@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommentService } from 'src/app/service/commentService/comment.service';
 
 import { throwError } from 'rxjs/internal/observable/throwError';
-import { User, Comment } from 'src/app/modelli/example.model';
+import { User, Comment } from 'src/app/modelli/interface';
 import { async, of } from 'rxjs';
 
 // describe('CommentiComponent', () => {

@@ -65,8 +65,6 @@ describe('CreateUserComponent', () => {
 
     userServiceStub.addUser.and.returnValue(of(mockUserResponse));
 
-    spyOn(console, 'log'); // Spy on console.log to check if it's called
-
     component.onSubmit(mockFormValue as unknown as NgForm);
 
     // Check that userService.addUser is called with the correct parameters
@@ -78,6 +76,5 @@ describe('CreateUserComponent', () => {
     });
 
     // Check that console.log is called with the response data
-    expect(console.log).toHaveBeenCalledWith(mockUserResponse);
   });
 });

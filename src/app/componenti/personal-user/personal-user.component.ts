@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Post, User } from 'src/app/modelli/example.model';
+import { Post, User } from 'src/app/modelli/interface';
 
 import { postService } from 'src/app/service/postService/post.service';
 import { userService } from 'src/app/service/userService/user.service';
@@ -31,11 +31,9 @@ export class PersonalUserComponent implements OnInit {
       this.idUser = +storeId;
       this.userService.getUserByID(this.idUser).subscribe((data: any) => {
         this.user = data;
-        console.log(this.user);
       });
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
         if (data.length === 0) {
-          //this.post = data;
           this.nopost = 'There are no Posts yet';
         } else {
           this.post = data;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { userService } from 'src/app/service/userService/user.service';
 
@@ -7,9 +7,8 @@ import { userService } from 'src/app/service/userService/user.service';
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.css'],
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUserComponent {
   constructor(private userService: userService) {}
-  ngOnInit(): void {}
   onSubmit(form: NgForm) {
     const name = form.value.name;
     const email = form.value.email;
@@ -21,8 +20,6 @@ export class CreateUserComponent implements OnInit {
         gender: gender,
         status: 'active',
       })
-      .subscribe((data: any) => {
-        console.log(data);
-      });
+      .subscribe((data) => {});
   }
 }

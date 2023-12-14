@@ -4,8 +4,8 @@ import { CreateUserComponent } from '../create-user/create-user.component';
 import { NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { userService } from 'src/app/service/userService/user.service';
-import { User } from 'src/app/modelli/example.model';
-import { Observable } from 'rxjs';
+import { User } from 'src/app/modelli/interface';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -43,10 +43,8 @@ export class UsersComponent implements OnInit {
 
   onSearch(form: NgForm) {
     const title = form.value.title;
-    console.log(title);
     this.userService.getUser3(title).subscribe((data: any) => {
       this.users = data;
-      console.log(data);
     });
   }
   back() {

@@ -1,6 +1,6 @@
 <form class="search" #loginform="ngForm" (ngSubmit)="onSearch(loginform)">
   <mat-form-field class="searchBar">
-    <mat-label>Seatch By Title of Post</mat-label>
+    <mat-label>Search By Title of Post</mat-label>
     <input matInput type="text" name="title" ngModel />
   </mat-form-field>
   <button mat-fab extended color="primary" type="submit">Search</button>
@@ -24,17 +24,6 @@
 </form>
 <div *ngFor="let post of Allpost">
   <app-post-unico [post]="post"></app-post-unico>
-  <!-- <mat-card>
-      <mat-card-header>
-        <mat-card-title>{{ posts.title }}</mat-card-title>
-        <mat-card-subtitle>{{ posts.body }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-actions>
-        <button class="openPost" mat-button routerLink="{{ posts.id }}">
-          Visualizza e Commenta Post
-        </button>
-      </mat-card-actions>
-    </mat-card> -->
 </div>
 <mat-paginator
   [length]="lenghtPost"

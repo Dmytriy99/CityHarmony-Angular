@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { catchError, of } from 'rxjs';
-import { Post } from 'src/app/modelli/example.model';
-import { CommentiComponent } from '../commenti/commenti.component';
+import { Post } from 'src/app/modelli/interface';
 import { userService } from 'src/app/service/userService/user.service';
 @Component({
   selector: 'app-post-unico',
@@ -36,7 +35,6 @@ export class PostUnicoComponent implements OnInit {
             this.userName = this.error;
           }
         });
-      // });
     }
   }
 }

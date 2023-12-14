@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { Post } from 'src/app/interface';
-import { Post } from 'src/app/modelli/example.model';
+import { Post } from 'src/app/modelli/interface';
 import { NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { postService } from 'src/app/service/postService/post.service';
@@ -14,9 +13,13 @@ export class PostComponent implements OnInit {
   title!: string;
   body!: string;
   Allpost!: Post[];
-  lenghtPost: number = 75;
+  lenghtPost!: number;
   pageSize: number = 10;
   pageIndex: number = 1;
+  hidePageSize = false;
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+  disabled = false;
   pageSizeOptions: number[] = [10, 25, 50, 75];
   pageEvent!: PageEvent;
   ngOnInit(): void {
@@ -35,19 +38,17 @@ export class PostComponent implements OnInit {
     const user_id = +localStorage.getItem('id')!;
     const title: string = form.value.title;
     const body: string = form.value.body;
-    console.log(title, body);
-    console.log(user_id);
+
     this.postService
       .postPost({ title: title, body: body, user: user_id }, user_id)
       .subscribe((data) => {
-        console.log(data);
         this.getAllPost(this.pageIndex, this.pageSize);
       });
   }
 
   onSearch(form: NgForm) {
     const title = form.value.title;
-    console.log(title);
+
     this.postService.getBySearch(title).subscribe((data: any) => {
       this.Allpost = data;
     });

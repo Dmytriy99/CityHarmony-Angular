@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post, User } from 'src/app/modelli/example.model';
+import { Post } from 'src/app/modelli/interface';
 import { postService } from 'src/app/service/postService/post.service';
 import { userService } from 'src/app/service/userService/user.service';
+import { User } from 'src/app/modelli/interface';
 
 @Component({
   selector: 'app-user',
@@ -31,7 +32,6 @@ export class UserComponent implements OnInit {
       });
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
         if (data.length === 0) {
-          //this.post = data;
           this.noPost = 'There are no Posts yet';
         } else {
           this.post = data;

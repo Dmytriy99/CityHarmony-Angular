@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Comment, User } from 'src/app/modelli/example.model';
+import { Comment, User } from 'src/app/modelli/interface';
 import { CommentService } from 'src/app/service/commentService/comment.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class CommentiComponent implements OnInit {
   dataLocal: any;
   user!: User;
   comment: Comment[] = [];
+  body!: string;
 
   noComment: string = '';
   @Input() postId!: number;
@@ -26,7 +27,6 @@ export class CommentiComponent implements OnInit {
           this.noComment = 'There are no comments yet';
         } else {
           this.comment = data;
-          console.log(this.comment);
         }
       });
     }
@@ -37,8 +37,6 @@ export class CommentiComponent implements OnInit {
       const body = form.value.body;
       const email = this.user.email;
       const name = this.user.name;
-      console.log(email);
-      console.log(this.postId);
       this.commentService
         .postComment(
           {
@@ -50,12 +48,16 @@ export class CommentiComponent implements OnInit {
           this.postId
         )
         .subscribe((data) => {
-          console.log(data);
           this.commentService.getComment(this.postId).subscribe((data: any) => {
             this.comment = data;
-            console.log(data);
+            this.noComment = '';
           });
         });
     }
+  }
+  clear() {
+    setTimeout(() => {
+      this.body = '';
+    }, 1500);
   }
 }

@@ -4,7 +4,7 @@ import { PersonalUserComponent } from './personal-user.component';
 import { userService } from 'src/app/service/userService/user.service';
 import { postService } from 'src/app/service/postService/post.service';
 import { of } from 'rxjs';
-import { User, Post } from 'src/app/modelli/example.model';
+import { User, Post } from 'src/app/modelli/interface';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('PersonalUserComponent', () => {

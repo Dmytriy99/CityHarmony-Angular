@@ -13,9 +13,6 @@ export class LoginComponent {
   storage = JSON.parse(localStorage.getItem('user')!);
 
   constructor(public route: Router) {}
-  ngOnInit(): void {
-    console.log(this.storage);
-  }
   onSubmit(form: NgForm) {
     const email = form.value.email;
     const token = form.value.token;
@@ -29,7 +26,6 @@ export class LoginComponent {
       this.route.navigate(['/posts']);
     } else {
       this.error = 'Utente non trovato';
-      console.log(email, this.localToken);
     }
   }
 }

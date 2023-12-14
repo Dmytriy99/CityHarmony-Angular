@@ -8,14 +8,14 @@
       #message
       maxlength="256"
       placeholder="Ex. I like your Post"
-      ngModel
+      [(ngModel)]="body"
     />
-    <!-- <button mat-raised-button color="primary" type="submit">Comment</button> -->
     <button
       mat-icon-button
       class="send"
       aria-label="Example icon-button with heart icon"
       type="submit"
+      (click)="clear()"
     >
       <mat-icon>send</mat-icon>
     </button>
