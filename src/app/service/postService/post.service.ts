@@ -6,8 +6,6 @@ import { httpOption, urlPost, urlUser } from '../api.export';
   providedIn: 'root',
 })
 export class postService {
-  provatoken: string =
-    '78d9b874c8945f8b890ec61e0e4d0c5f0a64001f932e5f5c899c61b77f8aac74';
   constructor(private http: HttpClient) {}
   postPost(body: {}, idUser: number) {
     return this, this.http.post(`${urlUser}/${idUser}/posts`, body, httpOption);

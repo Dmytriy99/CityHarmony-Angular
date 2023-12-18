@@ -1,9 +1,4 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommentiComponent } from './commenti.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,46 +14,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { CommentService } from 'src/app/service/commentService/comment.service';
 
-import { throwError } from 'rxjs/internal/observable/throwError';
 import { User, Comment } from 'src/app/modelli/interface';
-import { async, of } from 'rxjs';
+import { of } from 'rxjs';
 
-// describe('CommentiComponent', () => {
-//   let component: CommentiComponent;
-//   let fixture: ComponentFixture<CommentiComponent>;
-//   let mockCommentService: jasmine.SpyObj<CommentService>;
-//   beforeEach(async () => {
-//     mockCommentService = jasmine.createSpyObj('CommentService', [
-//       'getComment',
-//       'postComment',
-//     ]);
-//     await TestBed.configureTestingModule({
-//       imports: [
-//         RouterTestingModule,
-//         HttpClientModule,
-//         MatCardModule,
-//         MatFormFieldModule,
-//         BrowserAnimationsModule,
-//         ReactiveFormsModule,
-//         MatInputModule,
-//         MatSidenavModule,
-//         MatListModule,
-//         MatToolbarModule,
-//         MatIconModule,
-//         FormsModule,
-//       ],
-//       declarations: [CommentiComponent],
-//     }).compileComponents();
-
-//     fixture = TestBed.createComponent(CommentiComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
 describe('CommentiComponent', () => {
   let component: CommentiComponent;
   let fixture: ComponentFixture<CommentiComponent>;

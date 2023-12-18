@@ -4,7 +4,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { CommentService } from './comment.service';
-import { urlPost, httpOption } from '../api.export';
+import { urlPost } from '../api.export';
 
 describe('CommentService', () => {
   let service: CommentService;

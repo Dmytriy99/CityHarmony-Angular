@@ -25,7 +25,7 @@ export class LoginComponent {
       localStorage.setItem('isLog', 'true');
       this.route.navigate(['/posts']);
     } else {
-      this.error = 'Utente non trovato';
+      this.error = 'User not found';
     }
   }
 }

@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/modelli/interface';
@@ -32,7 +32,6 @@ export class RegisterComponent {
       .post(this.urlUser, { name, email, gender, status: 'active' }, httpOption)
       .subscribe({
         next: (data: any) => {
-          // Successo
           this.userService.createUser(
             data.name,
             data.email,
@@ -52,6 +51,8 @@ export class RegisterComponent {
           console.error('Errore durante la richiesta:', error);
           if (error.status === 401) {
             this.error = 'Invalid credentials. Please check and try again.';
+          } else if (error.status === 422) {
+            this.error = 'This email is already been used or invalid';
           }
         },
       });

@@ -43,7 +43,7 @@ export class UsersComponent implements OnInit {
 
   onSearch(form: NgForm) {
     const title = form.value.title;
-    this.userService.getUser3(title).subscribe((data: any) => {
+    this.userService.getUserBySearch(title).subscribe((data: any) => {
       this.users = data;
     });
   }

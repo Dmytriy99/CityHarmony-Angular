@@ -8,9 +8,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class userService {
-  provatoken: string =
-    '78d9b874c8945f8b890ec61e0e4d0c5f0a64001f932e5f5c899c61b77f8aac74';
-
   user!: AddUser;
   constructor(private http: HttpClient) {}
   createUser(name: string, email: string, gender: string, status: string) {
@@ -39,7 +36,7 @@ export class userService {
     return this.http.delete(`${urlUser}/${idUser}`, httpOption);
   }
 
-  getUser3(input: string) {
+  getUserBySearch(input: string) {
     return this.http.get(`${urlUser}?name=${input}`, httpOption);
   }
 }

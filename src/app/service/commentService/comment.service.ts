@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { httpOption, urlPost, urlUser } from '../api.export';
+import { httpOption, urlPost } from '../api.export';
 
 @Injectable({
   providedIn: 'root',

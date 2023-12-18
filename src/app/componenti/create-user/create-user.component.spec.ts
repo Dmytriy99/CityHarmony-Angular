@@ -48,7 +48,6 @@ describe('CreateUserComponent', () => {
   it('should call userService.addUser when onSubmit is called', () => {
     const mockFormValue = {
       value: {
-        // Utilizza 'value' per simulare il comportamento del form
         name: 'John Doe',
         email: 'john@example.com',
         gender: 'male',
@@ -67,14 +66,11 @@ describe('CreateUserComponent', () => {
 
     component.onSubmit(mockFormValue as unknown as NgForm);
 
-    // Check that userService.addUser is called with the correct parameters
     expect(userServiceStub.addUser).toHaveBeenCalledWith({
       name: mockFormValue.value.name,
       email: mockFormValue.value.email,
       gender: mockFormValue.value.gender,
       status: 'active',
     });
-
-    // Check that console.log is called with the response data
   });
 });

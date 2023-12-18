@@ -46,25 +46,18 @@ describe('PersonalUserComponent', () => {
       { id: 2, user_id: 1, title: 'Post 2', body: 'Body of post 2' },
     ];
 
-    // Mock userService.getUserByID response
     mockUserService.getUserByID.and.returnValue(of(mockUser));
 
-    // Mock postService.getPostById response
     mockPostService.getPostById.and.returnValue(of(mockPosts));
 
-    // Simulate localStorage.getItem('id')
     spyOn(localStorage, 'getItem').and.returnValue(mockUserId.toString());
 
-    // Trigger ngOnInit
     component.ngOnInit();
 
-    // Check if userService.getUserByID is called with the correct parameters
     expect(mockUserService.getUserByID).toHaveBeenCalledWith(mockUserId);
 
-    // Check if postService.getPostById is called with the correct parameters
     expect(mockPostService.getPostById).toHaveBeenCalledWith(mockUserId);
 
-    // Check if user and post variables are assigned correctly
     expect(component.user).toEqual(mockUser);
     expect(component.post).toEqual(mockPosts);
   });

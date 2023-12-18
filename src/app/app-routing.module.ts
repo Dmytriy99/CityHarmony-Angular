@@ -29,7 +29,6 @@ const routes: Routes = [
         canActivate: [isauthGuard],
         component: PersonalUserComponent,
       },
-      //{ path: 'post', component: PostUnicoComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },

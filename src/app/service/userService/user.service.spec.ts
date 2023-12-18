@@ -108,7 +108,7 @@ describe('userService', () => {
   it('should make a GET request to get user by name', () => {
     const input = 'Test Name';
 
-    service.getUser3(input).subscribe();
+    service.getUserBySearch(input).subscribe();
 
     const req = httpTestingController.expectOne(`${urlUser}?name=${input}`);
     expect(req.request.method).toEqual('GET');
