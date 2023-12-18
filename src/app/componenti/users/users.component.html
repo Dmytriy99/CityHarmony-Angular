@@ -1,4 +1,8 @@
-<form class="search" #loginform="ngForm" (ngSubmit)="onSearch(loginform)">
+<form
+  class="search"
+  #SearchUserform="ngForm"
+  (ngSubmit)="onSearch(SearchUserform)"
+>
   <mat-form-field class="searchBar">
     <mat-label>Search By Name</mat-label>
     <input matInput type="text" name="title" ngModel />
@@ -51,7 +55,7 @@
   </mat-card>
 </div>
 <mat-paginator
-  [length]="lenghtPost"
+  [length]="lenghtUser"
   [pageIndex]="pageIndex"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"

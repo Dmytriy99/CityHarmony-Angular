@@ -3,17 +3,20 @@ import { Post } from 'src/app/modelli/interface';
 import { NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { postService } from 'src/app/service/postService/post.service';
+import { HttpClient } from '@angular/common/http';
+import { httpOption, urlPost } from 'src/app/service/api.export';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
-  constructor(private postService: postService) {}
+  constructor(private postService: postService, private http: HttpClient) {}
+
   title!: string;
   body!: string;
   Allpost!: Post[];
-  lenghtPost!: number;
+  lenghtPost!: string | null;
   pageSize: number = 10;
   pageIndex: number = 1;
   hidePageSize = false;
@@ -24,6 +27,7 @@ export class PostComponent implements OnInit {
   pageEvent!: PageEvent;
   ngOnInit(): void {
     this.getAllPost(this.pageIndex, this.pageSize);
+    this.getLenght();
   }
 
   getAllPost(pageIndex: number, pageSize: number) {
@@ -31,7 +35,6 @@ export class PostComponent implements OnInit {
       .getAllPostByIndex(this.pageIndex, this.pageSize)
       .subscribe((data: any) => {
         this.Allpost = data;
-        this.lenghtPost = pageSize;
       });
   }
   onSubmit(form: NgForm) {
@@ -69,5 +72,15 @@ export class PostComponent implements OnInit {
       this.title = '';
       this.body = '';
     }, 1500);
+  }
+  getLenght() {
+    this.http
+      .get(`${urlPost}`, {
+        ...httpOption,
+        observe: 'response',
+      })
+      .subscribe((data) => {
+        this.lenghtPost = data.headers.get('x-pagination-total');
+      });
   }
 }

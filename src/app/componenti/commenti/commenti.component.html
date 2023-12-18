@@ -15,6 +15,7 @@
       class="send"
       aria-label="Example icon-button with heart icon"
       type="submit"
+      [disabled]="!body"
       (click)="clear()"
     >
       <mat-icon>send</mat-icon>

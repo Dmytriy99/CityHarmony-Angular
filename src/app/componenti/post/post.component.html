@@ -1,4 +1,4 @@
-<form class="search" #loginform="ngForm" (ngSubmit)="onSearch(loginform)">
+<form class="search" #postform="ngForm" (ngSubmit)="onSearch(postform)">
   <mat-form-field class="searchBar">
     <mat-label>Search By Title of Post</mat-label>
     <input matInput type="text" name="title" ngModel />
@@ -17,7 +17,14 @@
   <mat-form-field class="addPost">
     <mat-label>Textarea</mat-label>
     <textarea matInput type="text" name="body" [(ngModel)]="body"></textarea>
-    <button mat-fab extended color="primary" type="submit" (click)="clear()">
+    <button
+      mat-fab
+      extended
+      color="primary"
+      type="submit"
+      [disabled]="!title || !body"
+      (click)="clear()"
+    >
       Post
     </button>
   </mat-form-field>

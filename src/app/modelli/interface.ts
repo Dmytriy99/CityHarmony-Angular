@@ -6,13 +6,6 @@ export interface User {
   status: string;
 }
 
-// export interface AddUser {
-//   email: string;
-//   name: string;
-//   gender: string;
-//   status: string;
-// }
-
 export interface Comment {
   body: string;
   email: string;

@@ -24,4 +24,7 @@ export class postService {
   getPostById(userId: number) {
     return this.http.get(`${urlUser}/${userId}/posts`, httpOption);
   }
+  getheaders() {
+    return this.http.get(`${urlPost}`, { ...httpOption, observe: 'response' });
+  }
 }

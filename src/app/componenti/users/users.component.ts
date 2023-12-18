@@ -5,6 +5,8 @@ import { NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { userService } from 'src/app/service/userService/user.service';
 import { User } from 'src/app/modelli/interface';
+import { httpOption, urlUser } from 'src/app/service/api.export';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +14,7 @@ import { User } from 'src/app/modelli/interface';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  lenghtPost: number = 75;
+  lenghtUser!: string | null;
   pageSize: number = 10;
   pageIndex: number = 1;
   pageSizeOptions: number[] = [10, 25, 50, 75];
@@ -23,9 +25,14 @@ export class UsersComponent implements OnInit {
   photoMan2: string =
     'https://media.istockphoto.com/id/1349231567/it/vettoriale/personaggio-in-stile-anime-del-giovane-uomo-anime-ragazzo-vettoriale.jpg?s=612x612&w=0&k=20&c=og5UTl4H2bTTuqLDA9cHoYikk9pzYYgHxR1ZhWaopS4=';
   users!: User[];
-  constructor(public dialog: MatDialog, private userService: userService) {}
+  constructor(
+    public dialog: MatDialog,
+    private userService: userService,
+    private http: HttpClient
+  ) {}
   ngOnInit(): void {
     this.getAllUser(this.pageIndex, this.pageSize);
+    this.getLenght();
   }
 
   getAllUser(pageIndex: number, pageSize: number) {
@@ -33,7 +40,6 @@ export class UsersComponent implements OnInit {
       .getUserbyIndex(pageIndex, pageSize)
       .subscribe((data: any) => {
         this.users = data;
-        this.lenghtPost = pageSize;
       });
   }
 
@@ -55,5 +61,15 @@ export class UsersComponent implements OnInit {
     this.pageIndex = e.pageIndex;
     this.pageSize = e.pageSize;
     this.getAllUser(this.pageIndex, this.pageSize);
+  }
+  getLenght() {
+    this.http
+      .get(`${urlUser}`, {
+        ...httpOption,
+        observe: 'response',
+      })
+      .subscribe((data) => {
+        this.lenghtUser = data.headers.get('x-pagination-total');
+      });
   }
 }

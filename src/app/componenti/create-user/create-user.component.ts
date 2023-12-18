@@ -8,6 +8,7 @@ import { userService } from 'src/app/service/userService/user.service';
   styleUrls: ['./create-user.component.css'],
 })
 export class CreateUserComponent {
+  textError!: string;
   constructor(private userService: userService) {}
   onSubmit(form: NgForm) {
     const name = form.value.name;
@@ -20,6 +21,15 @@ export class CreateUserComponent {
         gender: gender,
         status: 'active',
       })
-      .subscribe((data) => {});
+      .subscribe({
+        next: (data) => {},
+        error: (error) => {
+          console.error('Errore durante la richiesta:', error);
+          if (error.status === 422) {
+            this.textError =
+              'You must input all the credentials or it is invalid';
+          }
+        },
+      });
   }
 }
