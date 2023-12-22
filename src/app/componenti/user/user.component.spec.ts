@@ -109,4 +109,24 @@ describe('UserComponent', () => {
     expect(mockUserService.deleteUser2).toHaveBeenCalledWith(1);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/users']);
   });
+  it('should handle no posts scenario on initialization', () => {
+    const userData = {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      gender: 'Male',
+      status: 'Active',
+    };
+
+    mockUserService.getUserByID.and.returnValue(of(userData));
+
+    fixture.detectChanges();
+
+    expect(mockUserService.getUserByID).toHaveBeenCalledWith(1);
+    expect(mockPostService.getPostById).toHaveBeenCalledWith(1);
+
+    expect(component.users).toEqual(userData);
+
+    expect(component.noPost).toEqual('There are no Posts yet');
+  });
 });

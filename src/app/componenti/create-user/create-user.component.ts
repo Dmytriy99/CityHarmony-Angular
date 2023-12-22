@@ -9,6 +9,7 @@ import { userService } from 'src/app/service/userService/user.service';
 })
 export class CreateUserComponent {
   textError!: string;
+  textCreate!: string;
   constructor(private userService: userService) {}
   onSubmit(form: NgForm) {
     const name = form.value.name;
@@ -22,7 +23,9 @@ export class CreateUserComponent {
         status: 'active',
       })
       .subscribe({
-        next: (data) => {},
+        next: (data) => {
+          this.textCreate = 'user created successfully';
+        },
         error: (error) => {
           console.error('Errore durante la richiesta:', error);
           if (error.status === 422) {

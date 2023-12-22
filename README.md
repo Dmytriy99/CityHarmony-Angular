@@ -1,6 +1,19 @@
-# Angular15
+# CityHarmony
+
+CityHarmony allows users to create an accaunt by register, then users can log-in wiith the email and the token provided by GoRest Api (https://gorest.co.in/).
+Users can create new post and comment, and adding comments to other users's post.They can also create new users and delete them.
+
+Tou can try the demo here :(https://cityharmony.netlify.app/posts)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+
+## Install
+
+run `npm intall` on your device for try the application
+
+## Angular Material
+
+To install Angular Material run `ng add @angular/material`
 
 ## Development server
 

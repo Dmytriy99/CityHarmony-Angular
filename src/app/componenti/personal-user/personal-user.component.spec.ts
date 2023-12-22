@@ -61,4 +61,28 @@ describe('PersonalUserComponent', () => {
     expect(component.user).toEqual(mockUser);
     expect(component.post).toEqual(mockPosts);
   });
+  it('should set nopost when there are no posts on initialization', () => {
+    const mockUserId = 1;
+    const mockUser: User = {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      gender: 'male',
+      status: 'active',
+    };
+    const mockEmptyPosts: Post[] = [];
+
+    mockUserService.getUserByID.and.returnValue(of(mockUser));
+    mockPostService.getPostById.and.returnValue(of(mockEmptyPosts));
+
+    spyOn(localStorage, 'getItem').and.returnValue(mockUserId.toString());
+
+    component.ngOnInit();
+
+    expect(mockUserService.getUserByID).toHaveBeenCalledWith(mockUserId);
+    expect(mockPostService.getPostById).toHaveBeenCalledWith(mockUserId);
+
+    expect(component.user).toEqual(mockUser);
+    expect(component.nopost).toEqual('There are no Posts yet');
+  });
 });

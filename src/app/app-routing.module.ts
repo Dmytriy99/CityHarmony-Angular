@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componenti/home/home.component';
 import { PostComponent } from './componenti/post/post.component';
-import { PostUnicoComponent } from './componenti/post-unico/post-unico.component';
 import { UsersComponent } from './componenti/users/users.component';
 import { UserComponent } from './componenti/user/user.component';
 import { PersonalUserComponent } from './componenti/personal-user/personal-user.component';

@@ -11,7 +11,7 @@ import { User } from 'src/app/modelli/interface';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  noPost: string = '';
+  noPost: string = 'There are no Posts yet';
   idUser: number = +this.route.snapshot.paramMap.get('id')!;
   users!: User;
   post!: Post[];
@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
       });
       this.postService.getPostById(this.idUser).subscribe((data: any) => {
         if (data.length === 0) {
-          this.noPost = 'There are no Posts yet';
+          this.noPost;
         } else {
           this.post = data;
         }

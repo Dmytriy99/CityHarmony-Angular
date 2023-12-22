@@ -13,7 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSelectModule } from '@angular/material/select';
 import { userService } from 'src/app/service/userService/user.service';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 describe('CreateUserComponent', () => {
   let component: CreateUserComponent;
   let fixture: ComponentFixture<CreateUserComponent>;
@@ -72,5 +72,38 @@ describe('CreateUserComponent', () => {
       gender: mockFormValue.value.gender,
       status: 'active',
     });
+  });
+  it('should set textError when userService returns 422 error', () => {
+    const mockFormValue = {
+      value: {
+        name: 'John Doe',
+        email: 'john@example.com',
+        gender: 'male',
+      },
+    };
+
+    userServiceStub.addUser.and.returnValue(throwError({ status: 422 }));
+
+    component.onSubmit(mockFormValue as unknown as NgForm);
+
+    expect(component.textError).toEqual(
+      'You must input all the credentials or it is invalid'
+    );
+  });
+
+  it('should not set textError when userService returns success', () => {
+    const mockFormValue = {
+      value: {
+        name: 'John Doe',
+        email: 'john@example.com',
+        gender: 'male',
+      },
+    };
+
+    userServiceStub.addUser.and.returnValue(of({}));
+
+    component.onSubmit(mockFormValue as unknown as NgForm);
+
+    expect(component.textError).toBeUndefined();
   });
 });

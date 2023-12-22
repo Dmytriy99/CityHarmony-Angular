@@ -38,8 +38,9 @@ export class RegisterComponent {
             data.gender,
             data.status
           );
-          localStorage.setItem('user', JSON.stringify(this.userService.user));
           localStorage.setItem('token', token);
+          localStorage.setItem('email', email);
+          localStorage.setItem('user', JSON.stringify(this.userService.user));
           this.http.get(this.urlUser, httpOption).subscribe((data: any) => {
             this.persone = data;
             localStorage.setItem('id', JSON.stringify(this.persone[0].id));
