@@ -7,13 +7,21 @@ import { userService } from 'src/app/service/userService/user.service';
 import { User } from 'src/app/modelli/interface';
 import { httpOption, urlUser } from 'src/app/service/api.export';
 import { HttpClient } from '@angular/common/http';
+import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
+  providers: [
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'purple' },
+    },
+  ],
 })
 export class UsersComponent implements OnInit {
+  selectedOption!: string;
   lenghtUser!: string | null;
   pageSize: number = 10;
   pageIndex: number = 1;
@@ -46,10 +54,22 @@ export class UsersComponent implements OnInit {
   openDialog() {
     this.dialog.open(CreateUserComponent);
   }
-
+  onSubmit(form: NgForm) {
+    if (this.selectedOption === '1') {
+      this.onSearch(form);
+    } else if (this.selectedOption === '2') {
+      this.onSearchEmail(form);
+    }
+  }
   onSearch(form: NgForm) {
     const title = form.value.title;
     this.userService.getUserBySearch(title).subscribe((data: any) => {
+      this.users = data;
+    });
+  }
+  onSearchEmail(form: NgForm) {
+    const email = form.value.title;
+    this.userService.getUserBySearchEmail(email).subscribe((data: any) => {
       this.users = data;
     });
   }

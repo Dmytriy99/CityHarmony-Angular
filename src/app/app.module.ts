@@ -29,7 +29,7 @@ import { PersonalUserComponent } from './componenti/personal-user/personal-user.
 import { RegisterComponent } from './componenti/register/register.component';
 import { UserComponent } from './componenti/user/user.component';
 import { UsersComponent } from './componenti/users/users.component';
-
+import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import { UsersComponent } from './componenti/users/users.component';
     MatListModule,
     HttpClientModule,
     MatPaginatorModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

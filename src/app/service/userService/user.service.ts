@@ -39,4 +39,7 @@ export class userService {
   getUserBySearch(input: string) {
     return this.http.get(`${urlUser}?name=${input}`, httpOption);
   }
+  getUserBySearchEmail(input: string) {
+    return this.http.get(`${urlUser}?email=${input}`, httpOption);
+  }
 }
