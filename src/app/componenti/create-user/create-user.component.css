@@ -35,4 +35,8 @@ h2 {
   form {
     width: 250px;
   }
+  h2 {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
