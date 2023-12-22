@@ -24,7 +24,7 @@ export class CreateUserComponent {
       })
       .subscribe({
         next: (data) => {
-          this.textCreate = 'user created successfully';
+          this.textCreate = 'User created successfully';
         },
         error: (error) => {
           console.error('Errore durante la richiesta:', error);

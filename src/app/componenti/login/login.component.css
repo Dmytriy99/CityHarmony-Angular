@@ -32,4 +32,10 @@ mat-card-content {
   mat-card {
     width: 90%;
   }
+  mat-form-field {
+    width: 85%;
+  }
+  mat-card-content {
+    width: 80%;
+  }
 }
