@@ -82,4 +82,7 @@ mat-radio-group {
   .addUser {
     text-align: center;
   }
+  mat-radio-group {
+    margin-right: 20px;
+  }
 }
