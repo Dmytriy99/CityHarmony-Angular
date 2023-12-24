@@ -21,7 +21,7 @@ export class LoginComponent {
   control(emailUser: string, token: string) {
     if (emailUser == this.localEmail && token == this.localToken) {
       localStorage.setItem('isLog', 'true');
-      this.route.navigate(['/posts']);
+      this.route.navigate(['/users']);
     } else {
       this.error = 'User not found';
     }

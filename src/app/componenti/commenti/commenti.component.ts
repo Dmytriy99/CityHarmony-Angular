@@ -50,7 +50,6 @@ export class CommentiComponent implements OnInit {
         .subscribe((data) => {
           this.commentService.getComment(this.postId).subscribe((data: any) => {
             this.comment = data;
-            console.log(this.comment);
             this.noComment = '';
           });
         });
