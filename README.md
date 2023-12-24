@@ -1,9 +1,10 @@
 # CityHarmony
 
-CityHarmony allows users to create an accaunt by register, then users can log-in wiith the email and the token provided by GoRest Api (https://gorest.co.in/).
+CityHarmony allows users to create an accaunt by register, then users can log-in wiith the email you input and the token provided by GoRest Api (https://gorest.co.in/).
 Users can create new post and comment, and adding comments to other users's post.They can also create new users and delete them.
+CityHarmony also allows users to do some research of the post by title, and users by name.
 
-Tou can try the demo here :(https://cityharmony.netlify.app/posts)
+Tou can try the demo here :(https://cityharmony.netlify.app)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
 
@@ -30,6 +31,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+run `ng test --no-watch --code-coverage` to see the coverage of the test.
 
 ## Running end-to-end tests
 
