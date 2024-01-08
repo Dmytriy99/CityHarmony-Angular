@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { userService } from 'src/app/service/userService/user.service';
 import { User } from 'src/app/modelli/interface';
-import { httpOption, urlUser } from 'src/app/service/api.export';
+import { httpOption, token, urlUser } from 'src/app/service/api.export';
 import { HttpClient } from '@angular/common/http';
 import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 
@@ -33,14 +33,19 @@ export class UsersComponent implements OnInit {
   photoMan2: string =
     'https://media.istockphoto.com/id/1349231567/it/vettoriale/personaggio-in-stile-anime-del-giovane-uomo-anime-ragazzo-vettoriale.jpg?s=612x612&w=0&k=20&c=og5UTl4H2bTTuqLDA9cHoYikk9pzYYgHxR1ZhWaopS4=';
   users!: User[];
+
   constructor(
     public dialog: MatDialog,
     private userService: userService,
     private http: HttpClient
   ) {}
   ngOnInit(): void {
-    this.getAllUser(this.pageIndex, this.pageSize);
-    this.getLenght();
+    if (token) {
+      this.getAllUser(this.pageIndex, this.pageSize);
+      this.getLenght();
+    } else {
+      location.reload();
+    }
   }
 
   getAllUser(pageIndex: number, pageSize: number) {
@@ -52,7 +57,10 @@ export class UsersComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(CreateUserComponent);
+    const opendialog = this.dialog.open(CreateUserComponent);
+    opendialog.afterClosed().subscribe((result) => {
+      location.reload();
+    });
   }
   onSubmit(form: NgForm) {
     if (this.selectedOption === '1') {
