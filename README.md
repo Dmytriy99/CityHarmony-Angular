@@ -4,7 +4,7 @@ CityHarmony allows users to create an accaunt by register, then users can log-in
 Users can create new post and comment, and adding comments to other users's post.They can also create new users and delete them.
 CityHarmony also allows users to do some research of the post by title, and users by name.
 
-Tou can try the demo here :(https://cityharmony.netlify.app)
+Tou can try the demo here :(https://cityarmony.web.app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
 
