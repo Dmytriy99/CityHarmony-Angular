@@ -1,5 +1,7 @@
 # CityHarmony
 
+Questo progetto è il risultato dell'esame per il corso Start2Impact per Angular
+
 CityHarmony allows users to create an accaunt by register, then users can log-in wiith the email you input and the token provided by GoRest Api (https://gorest.co.in/).
 Users can create new post and comment, and adding comments to other users's post.They can also create new users and delete them.
 CityHarmony also allows users to do some research of the post by title, and users by name.
